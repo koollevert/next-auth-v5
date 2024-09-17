@@ -50,6 +50,19 @@ export default function RegisterForm(){
                         <div className="space-y-4">
                             <FormField
                                 control={form.control}
+                                name="name"
+                                render={({field})=>(
+                                    <FormItem>
+                                        <FormLabel>Name</FormLabel>
+                                        <FormControl>
+                                            <Input disabled={isPending} {...field} placeholder="John Doe"/>
+                                        </FormControl>
+                                        <FormMessage/>
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
                                 name="email"
                                 render={({field})=>(
                                     <FormItem>
@@ -76,19 +89,6 @@ export default function RegisterForm(){
                                 )}
                             />
 
-                            <FormField
-                                control={form.control}
-                                name="name"
-                                render={({field})=>(
-                                    <FormItem>
-                                        <FormLabel>Name</FormLabel>
-                                        <FormControl>
-                                            <Input disabled={isPending} {...field} placeholder="John Doe"/>
-                                        </FormControl>
-                                        <FormMessage/>
-                                    </FormItem>
-                                )}
-                            />
                         </div>
                         <FormError message={error}/>
                         <FormSuccess message={success}/>
