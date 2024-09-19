@@ -1,4 +1,4 @@
-import { auth, signOut } from "@/auth"; 
+import { auth, signOut } from "../../../../auth";
 
 export default  async function SettingsPage(){
     const session=await auth();

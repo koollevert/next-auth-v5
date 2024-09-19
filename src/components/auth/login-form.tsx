@@ -1,7 +1,6 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { CardWrapper } from "./card-wrapper";
-import { LoginSchema } from "@/schemas";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
@@ -9,9 +8,10 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
-import { login } from "@/actions/login";
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { login } from "../../../actions/login";
+import { LoginSchema } from "../../../schemas";
 
 export default function LoginForm() {
     const [error, setError] = useState<string | undefined>("");
