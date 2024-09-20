@@ -7,11 +7,11 @@ import { Social } from "./social";
 interface CardWrapperProps{
     children: React.ReactNode;
     headerLabel: string;
-    backButtonlabel: string;
+    backButtonLabel: string;
     backButtonHref: string;
-    showScoial?: boolean;
+    showSocial?: boolean;
 }
-export function CardWrapper({children, headerLabel, backButtonlabel, backButtonHref, showScoial}: CardWrapperProps){
+export function CardWrapper({children, headerLabel, backButtonLabel, backButtonHref, showSocial}: CardWrapperProps){
     return(
         <Card className="w-[400px] shadow-md">
             <CardHeader>
@@ -25,7 +25,7 @@ export function CardWrapper({children, headerLabel, backButtonlabel, backButtonH
             </CardFooter>
             <CardFooter>
                 <BackButton
-                    label={backButtonlabel}
+                    label={backButtonLabel}
                     href={backButtonHref}
                 />
             </CardFooter>
