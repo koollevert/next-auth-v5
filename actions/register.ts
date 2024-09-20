@@ -1,10 +1,9 @@
 "use server";
 import bcrypt from "bcryptjs";
-
-import { registerSchema } from "@/schemas";
 import { z } from "zod";
 import { db } from "@/lib/db";
-import { getUserByEmail } from "@/data/user";
+import { getUserByEmail } from "../data/user";
+import { registerSchema } from "../schemas";
 
 export async function register(values: z.infer<typeof registerSchema>){
     const validateFields = registerSchema.safeParse(values);

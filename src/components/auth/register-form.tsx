@@ -9,8 +9,8 @@ import { Button } from "../ui/button";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
 import { useState, useTransition } from "react";
-import { registerSchema } from "@/schemas";
-import { register } from "@/actions/register";
+import { registerSchema } from "../../../schemas";
+import { register } from "../../../actions/register";
 
 export default function RegisterForm(){
     const [error, setError]=useState<string | undefined>("");
