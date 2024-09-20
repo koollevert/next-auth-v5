@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14
+    container_name: postgres_nextuth
+    environment:
+      POSTGRES_USER: postgress  # You can change this user
+      POSTGRES_PASSWORD: your_password_here  # Change to a strong password
+      POSTGRES_DB: nextuth_db  # This is the database name
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+volumes:
+  pgdata:
+
+networks:
+  app-network:
+    driver: bridge
