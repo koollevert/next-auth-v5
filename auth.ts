@@ -25,13 +25,14 @@ export const {
     }
   },
   callbacks:{
-    // async signIn({user}){
-    //   const existingUser= await getUserByID(user.id);
-    //   if(!existingUser || !existingUser.emailVerified){
-    //     return false;
-    //   }
-    //   return true;
-    // },
+    async signIn({user, account}){
+      if(account?.provider !=="credentials") return true;
+      const existingUser = await getUserByID(user.id);
+      //prevent without emali verification
+      if(!existingUser?.emailVerified) return false;
+      //2fa
+      return true;
+    },
     async session({token, session}){
       if(token.sub && session.user){
         session.user.id=token.sub;
