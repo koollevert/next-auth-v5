@@ -5,6 +5,7 @@ import { db } from "@/lib/db";
 import authConfig from "./auth.config";
 import { getUserByID } from "./data/user";
 import { UserRole } from "@prisma/client";
+import { getTwoFactorConfirmationByUserId } from "./data/two-factor-confirmation";
 
 export const {
   handlers: { GET, POST },
@@ -31,6 +32,14 @@ export const {
       //prevent without emali verification
       if(!existingUser?.emailVerified) return false;
       //2fa
+      if(existingUser.isTwoFactorEnabled){
+        const twoFactorCornfirmation=await getTwoFactorConfirmationByUserId(existingUser.id);
+        if(!twoFactorCornfirmation) return false;
+        //delete 2fa confirmation for next sign in
+        await db.twoFactorConfirmation.delete({
+          where: {id: twoFactorCornfirmation.id}
+        });
+      }
       return true;
     },
     async session({token, session}){
