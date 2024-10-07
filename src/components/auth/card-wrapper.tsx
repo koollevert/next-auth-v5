@@ -11,7 +11,7 @@ interface CardWrapperProps{
     backButtonHref: string;
     showSocial?: boolean;
 }
-export function CardWrapper({children, headerLabel, backButtonLabel, backButtonHref, showSocial}: CardWrapperProps){
+export function CardWrapper({children, headerLabel, backButtonLabel, backButtonHref}: CardWrapperProps){
     return(
         <Card className="w-[400px] shadow-md">
             <CardHeader>

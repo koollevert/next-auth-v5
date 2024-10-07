@@ -1,6 +1,6 @@
 import { ErrorCard } from "@/components/auth/error-card";
 
-export default function(){
+export default function AuthErrorPage(){
     return(
         <ErrorCard/>
     );

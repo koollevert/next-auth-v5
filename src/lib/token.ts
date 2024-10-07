@@ -3,7 +3,6 @@ import {v4 as uuidv4} from "uuid";
 import { getVerificationTokenByEmail } from "../../data/verification-token";
 import { db } from "./db";
 import { getPasswordResetTokenByEmail } from "../../data/password-reset-token";
-import React from 'react'
 import { getTwoFactorTokenByEmail } from "../../data/two-factor-token";
 
 export async function generateTwofactorToken(email: string) {
